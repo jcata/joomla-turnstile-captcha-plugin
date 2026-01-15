@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="captcha" method="upgrade">
+	<name>plg_captcha_turnstile</name>
+	<author>webactualizable.com</author>
+	<creationDate>2026-01-15</creationDate>
+	<copyright>(C) 2025 jordi.cata@arambee.com, based in SharkyKZ works Turnstile</copyright>
+    <authorEmail>jordi.cata@arambee.com</authorEmail>
+    <authorUrl> webactualizable.com</authorUrl>
+	<license>GPL-3.0-or-later</license>
+	<version>1.5.3</version>
+	<description>PLG_CAPTCHA_TURNSTILE_XML_DESCRIPTION</description>
+	<files>
+		<filename plugin="turnstile">turnstile.php</filename>
+		<filename>install.script.php</filename>
+		<folder>tmpl</folder>
+	</files>
+	<scriptfile>install.script.php</scriptfile>
+	<languages>
+		<language tag="en-GB">language/en-GB/en-GB.plg_captcha_turnstile.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.plg_captcha_turnstile.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="siteKey"
+					type="text"
+					filter="string"
+					label="PLG_CAPTCHA_TURNSTILE_CONFIG_SITE_KEY_LABEL"
+				/>
+				<field
+					name="secret"
+					type="text"
+					filter="string"
+					label="PLG_CAPTCHA_TURNSTILE_CONFIG_SECRET_LABEL"
+				/>
+				<field
+					name="theme"
+					type="list"
+					label="PLG_CAPTCHA_TURNSTILE_CONFIG_THEME_LABEL"
+					default=""
+					filter="string"
+					validate="options"
+					>
+					<option value="">PLG_CAPTCHA_TURNSTILE_CONFIG_THEME_OPTION_AUTO</option>
+					<option value="light">PLG_CAPTCHA_TURNSTILE_CONFIG_THEME_OPTION_LIGHT</option>
+					<option value="dark">PLG_CAPTCHA_TURNSTILE_CONFIG_THEME_OPTION_DARK</option>
+				</field>
+				<field
+					name="size"
+					type="list"
+					label="PLG_CAPTCHA_TURNSTILE_CONFIG_SIZE_LABEL"
+					default=""
+					filter="string"
+					validate="options"
+					>
+					<option value="">PLG_CAPTCHA_TURNSTILE_CONFIG_SIZE_OPTION_NORMAL</option>
+					<option value="compact">PLG_CAPTCHA_TURNSTILE_CONFIG_SIZE_OPTION_COMPACT</option>
+					<option value="flexible">PLG_CAPTCHA_TURNSTILE_CONFIG_SIZE_OPTION_FLEXIBLE</option>
+				</field>
+				<field
+					name="retry-interval"
+					type="number"
+					label="PLG_CAPTCHA_TURNSTILE_CONFIG_RETRY_INTERVAL_LABEL"
+					description="PLG_CAPTCHA_TURNSTILE_CONFIG_RETRY_INTERVAL_DESCRIPTION"
+					filter="int"
+					min="1000"
+					max="899999"
+					validate="number"
+				/>
+			</fieldset>
+			<fieldset name="advanced">
+				<field
+					name="strictMode"
+					type="radio"
+					label="PLG_CAPTCHA_TURNSTILE_CONFIG_STRICT_MODE_LABEL"
+					description="PLG_CAPTCHA_TURNSTILE_CONFIG_STRICT_MODE_DESCRIPTION"
+					class="btn-group btn-group-yesno"
+					default="0"
+					filter="uint"
+					validate="options"
+					>
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+			</fieldset>
+			<fieldset name="callbacks" label="PLG_CAPTCHA_TURNSTILE_CONFIG_FIELDSET_CALLBACK_LABEL">
+			<field
+					name="callback"
+					type="text"
+					filter="string"
+					label="PLG_CAPTCHA_TURNSTILE_CONFIG_CALLBACK_LABEL"
+					description="PLG_CAPTCHA_TURNSTILE_CONFIG_CALLBACK_DESCRIPTION"
+				/>
+				<field
+					name="error-callback"
+					type="text"
+					filter="string"
+					label="PLG_CAPTCHA_TURNSTILE_CONFIG_ERROR_CALLBACK_LABEL"
+					description="PLG_CAPTCHA_TURNSTILE_CONFIG_ERROR_CALLBACK_DESCRIPTION"
+				/>
+				<field
+					name="expired-callback"
+					type="text"
+					filter="string"
+					label="PLG_CAPTCHA_TURNSTILE_CONFIG_EXPIRED_CALLBACK_LABEL"
+					description="PLG_CAPTCHA_TURNSTILE_CONFIG_EXPIRED_CALLBACK_DESCRIPTION"
+				/>
+				<field
+					name="before-interactive-callback"
+					type="text"
+					filter="string"
+					label="PLG_CAPTCHA_TURNSTILE_CONFIG_BEFORE_INTERACTIVE_CALLBACK_LABEL"
+					description="PLG_CAPTCHA_TURNSTILE_CONFIG_BEFORE_INTERACTIVE_CALLBACK_DESCRIPTION"
+				/>
+				<field
+					name="after-interactive-callback"
+					type="text"
+					filter="string"
+					label="PLG_CAPTCHA_TURNSTILE_CONFIG_AFTER_INTERACTIVE_CALLBACK_LABEL"
+					description="PLG_CAPTCHA_TURNSTILE_CONFIG_AFTER_INTERACTIVE_CALLBACK_DESCRIPTION"
+				/>
+				<field
+					name="unsupported-callback"
+					type="text"
+					filter="string"
+					label="PLG_CAPTCHA_TURNSTILE_CONFIG_UNSUPPORTED_CALLBACK_LABEL"
+					description="PLG_CAPTCHA_TURNSTILE_CONFIG_UNSUPPORTED_CALLBACK_DESCRIPTION"
+				/>
+				<field
+					name="timeout-callback"
+					type="text"
+					filter="string"
+					label="PLG_CAPTCHA_TURNSTILE_CONFIG_TIMEOUT_CALLBACK_LABEL"
+					description="PLG_CAPTCHA_TURNSTILE_CONFIG_TIMEOUT_CALLBACK_DESCRIPTION"
+				/>
+			</fieldset>
+		</fields>
+	</config>
+	<changelogurl>https://raw.githubusercontent.com/SharkyKZ/joomla-turnstile-plugin/master/updates/changelog.xml</changelogurl>
+	<updateservers>
+		<server type="extension" name="Captcha - Cloudflare Turnstile">https://raw.githubusercontent.com/SharkyKZ/joomla-turnstile-plugin/master/updates/updates.xml</server>
+	</updateservers>
+</extension>
